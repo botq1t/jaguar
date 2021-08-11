@@ -1,0 +1,124 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+%bb {
+	border-bottom: 2px solid rgb(19, 19, 19);
+}
+%br {
+	border-right: 2px solid rgb(19, 19, 19);
+}
+%vid {
+	background: rgba(255, 0, 0, 0.3);
+	outline: 3px solid rgb(43, 0, 255);
+}
+
+body {
+	background: url("../../img/header/yager0.jpg") 0 0/250px 250px;
+	display: flex;
+	font-family: Arial;
+	padding: 3px;
+	min-width: 1300px;
+}
+.body {
+	background: rgba(255, 255, 255, 0.95);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex-basis: 100%;
+	border: 5px solid rgb(19, 19, 19);
+	border-radius: 10px;
+}
+
+// Header
+.header {
+	display: flex;
+	flex-flow: column nowrap;
+	&__hello {
+	background: rgba(48, 48, 48, 0.95);
+	padding: 40px 0;
+	height: 120px;
+	word-spacing: 10px;
+	text-transform: uppercase;
+	color: rgb(181, 209, 12);
+	text-shadow: 0 0 8px rgb(0, 0, 0);
+	font-size: 40px;
+	font-weight: 700;
+	font-style: italic;
+	text-align: center;
+	position: relative;
+	@extend %bb;
+	&:active {
+		background: rgba(231, 29, 186, 0.95);
+		color: rgb(255, 255, 255);
+	}
+	&:active::before {
+		content: "";
+		display: inline-block;
+
+		background:  url("../img/header/flower.png") 0 0/ 50px 50px repeat;
+		height: 100px;
+		width: 150px;
+		position: absolute;
+		top: 10px;
+		left: 10%;
+	}
+	&:active::after {
+		content: "";
+		display: inline-block;
+		background: url("../img/header/flower.png") 0 0/ 50px 50px repeat;
+		height: 100px;
+		width: 150px;
+		position: absolute;
+		top: 10px;
+		right: 10%;
+	}
+	}
+
+}
+
+.navigation {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background: rgba(120, 120, 120, 0.95);
+	flex-basis: 100px;
+	@extend %br;
+	&__link {
+		// @extend %vid;
+		color: rgb(31, 31, 30);
+		display: inline-block;
+		text-align: left;
+		padding: 10px;
+		font-size: 20px;
+		&:hover {background: rgba(112, 122, 157, 0.95);}
+		&:active {background: rgba(67, 74, 97, 0.95);}
+	}
+}
+
+// Main content
+
+.content {
+	// @extend %vid;
+	@extend %bb;
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+	&__body {
+		@extend %br;
+		background: rgba(136, 132, 132, 0.95);
+		height: 100%;
+		flex-basis: 100%;
+	}
+
+	&__form {
+		background: rgba(120, 120, 120, 0.95);
+		flex-basis: 200px;
+	}
+
+}
+
+// Footer
+.footer {
+	height: 70px;
+	background: rgba(48, 48, 48, 0.95);
+}
