@@ -1,11 +1,14 @@
 // Файл обнуляющих стилей
 @import "nullstyle.scss";
 
+$colorhover: rgba(112, 122, 157, 0.95);
+$coloractive: rgba(67, 74, 97, 0.95);
+$colorborder: rgb(19, 19, 19);
 %bb {
-	border-bottom: 2px solid rgb(19, 19, 19);
+	border-bottom: 2px solid $colorborder;
 }
 %br {
-	border-right: 2px solid rgb(19, 19, 19);
+	border-right: 2px solid $colorborder;
 }
 %vid {
 	background: rgba(255, 0, 0, 0.3);
@@ -25,7 +28,7 @@ body {
 	flex-direction: column;
 	justify-content: flex-start;
 	flex-basis: 100%;
-	border: 5px solid rgb(19, 19, 19);
+	border: 5px solid $colorborder;
 	border-radius: 10px;
 }
 
@@ -90,8 +93,8 @@ body {
 		text-align: left;
 		padding: 10px;
 		font-size: 20px;
-		&:hover {background: rgba(112, 122, 157, 0.95);}
-		&:active {background: rgba(67, 74, 97, 0.95);}
+		&:hover {background: $colorhover;}
+		&:active {background: $coloractive;}
 	}
 }
 
@@ -111,8 +114,37 @@ body {
 	}
 
 	&__form {
-		background: rgba(120, 120, 120, 0.95);
-		flex-basis: 200px;
+		width: 160px;
+		form {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			background: rgba(120, 120, 120, 0.95);
+			flex-basis: 200px;
+			p {
+				padding: 5px;
+				font-size: 18px;
+				line-height: 20px;
+			}
+			input {
+				margin: 7px 5px 0 5px;
+				padding: 3px;
+				height: 25px;
+				&:focus {
+					box-shadow: 0 0 5px rgb(90, 232, 232);
+				}
+			}
+			button {
+				border: 2px solid $colorborder;
+				margin: 7px 5px 0 5px;
+				font-size: 15px;
+				font-weight: 600;
+				width: 40%;
+				height: 22px;
+				&:hover {background: rgb(210, 210, 210);}
+				&:active {background: rgb(142, 142, 142);}
+			}
+		}
 	}
 
 }
