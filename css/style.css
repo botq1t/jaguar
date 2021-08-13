@@ -448,6 +448,9 @@ body {
   background: #07d516;
 }
 
+.chance {
+  display: none;
+}
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
