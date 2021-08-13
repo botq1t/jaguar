@@ -17,11 +17,11 @@ function randomer() {
   rns.innerText = `${names[rn]} ${surnames[rs]}`
   rns.style.color = `#d01d1d`;
   rns.style.fontWeight = `bold`;
-  rns.style.fontSize = `40px`;
+  rns.style.fontSize = `30px`;
 
   uni2.style.display = `flex`;
   uni.innerText = `${uniq}%`
   uni.style.color = `#d01d1d`;
   uni.style.fontWeight = `bold`;
-  uni.style.fontSize = `40px`;
+  uni.style.fontSize = `30px`;
 }
