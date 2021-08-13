@@ -270,6 +270,7 @@ body {
 			font-size: $fsz-medium;
 			font-style: italic;
 			color: $head-color;
+			text-shadow: 0 0 2px black;
 
 			@media (min-width: 375px) {
 				font-size: $fsz-medium-375;

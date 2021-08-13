@@ -401,6 +401,7 @@ body {
   font-size: 16px;
   font-style: italic;
   color: #160277;
+  text-shadow: 0 0 2px black;
 }
 @media (min-width: 375px) {
   .main__card-content {
