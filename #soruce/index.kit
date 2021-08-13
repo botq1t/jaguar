@@ -9,31 +9,32 @@
   </head>
   <body>
     <div class="wrapper">
-<!-- ============================================================================== -->
-      <header class="header">
-          <div class="container">
-          <p>Jager Randomer 3000</p>
-        </div>
-      </header>
-<!-- ============================================================================== -->
-      <navigation class="navigation">
+      <!-- @import header.html -->
+      <!-- @import navigation.html -->
+      <main class="main">
         <div class="container">
-          <div class="navigation__raw">
-            <a href="index.html" class="navigation__link">Generator</a>
-            <a href="#" class="navigation__link">Names</a>
-            <a href="#" class="navigation__link">Surnames</a>
-            <a href="https://botq1t.github.io/sivblog/" target="blank" class="navigation__link">Sivblog</a>
+          <div class="main__card generator">
+            <div class="main__card-title generator__title">
+              Today is:
+            </div>
+            <div class="main__card-content generator__content">
+              Press the button below to generate
+            </div>
+            <div class="main__card-footer generator__button">
+              <button type="button" name="button">Generate</button>
+            </div>
+          </div>
+          <div class="main__card chance">
+            <div class="main__card-title chance__title">
+              Chance of this combination is:
+            </div>
+            <div class="main__card-content chance__amount">
+              x %
+            </div>
           </div>
         </div>
-      </navigation>
-<!-- ============================================================================== -->
-      <main class="main"></main>
-<!-- ============================================================================== -->
-      <footer class="footer">
-        <div class="container">
-          <p>Thanks for using!</p>
-        </div>
-      </footer>
+      </main>
+      <!-- @import footer.html -->
     </div>
   </body>
 </html>

@@ -230,6 +230,9 @@ body {
   margin: 0 -10px;
 }
 .navigation__link {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   border-right: 1px solid #100354;
   letter-spacing: 1px;
   font-size: 18px;
@@ -250,6 +253,89 @@ body {
           flex: 1 1 auto;
   background: -webkit-gradient(linear, left top, left bottom, from(#f2eff7), color-stop(50%, #e4dee8), to(#f7f7f7));
   background: linear-gradient(to bottom, #f2eff7 0%, #e4dee8 50%, #f7f7f7 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 0;
+}
+.main__card {
+  background: #dcdae0;
+  border: 2px solid #0d0533;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
+}
+.main__card-title {
+  background: #160277;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  padding: 13px 5px;
+  border-bottom: 2px solid #0d0533;
+  width: 100%;
+}
+.main__card-content {
+  color: #160277;
+  text-align: center;
+  padding: 13px 5px;
+  font-size: 20px;
+  font-style: italic;
+  border-bottom: 2px solid #0d0533;
+  width: 100%;
+}
+.main__card-footer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.generator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.generator__button button {
+  background: #160277;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.chance__title {
+  width: 100%;
+}
+.chance__amount {
+  width: 100%;
+  border-bottom: none;
 }
 
 .footer {

@@ -121,6 +121,7 @@ body {
 		align-items: center;
 		height: 40px;
 	&__link {
+		flex: 1 0 auto;
 		// @extend %vid;
 		border-right: 1px solid rgb(16, 3, 84);
 		letter-spacing: 1px;
@@ -137,11 +138,98 @@ body {
 	}
 }
 // ================================================================================
+$genbordcolor: rgb(13, 5, 51);
+
 .main {
 	flex: 1 1 auto;
-	// background: linear-gradient(to bottom, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 100%);
 	background: linear-gradient(to bottom, rgba(242,239,247,1) 0%,rgba(228,222,232,1) 50%,rgba(247,247,247,1) 100%);
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0;
+	&__card {
+		background: rgba(220, 218, 224, 1);
+		border: 2px solid $genbordcolor;
+		border-radius: 10px;
+		overflow: hidden;
+		margin: 0 0 20px 0;
+		&-title {
+			background: $headcolor;
+			text-align: center;
+			font-size: 25px;
+			color: rgb(255, 255, 255);
+			font-weight: bold;
+			padding: 13px 5px;
+			border-bottom: 2px solid $genbordcolor;
+			width: 100%;
+		}
+		&-content {
+			color: $headcolor;
+			text-align: center;
+			padding: 13px 5px;
+			font-size: 20px;
+			font-style: italic;
+			border-bottom: 2px solid $genbordcolor;
+			width: 100%;
+
+		}
+		&-footer {
+			flex: 1 0 auto;
+			width: 100%;
+			align-self: center;
+			// @extend %vid;
+		}
+	}
 }
+
+
+
+.generator {
+	display: flex;
+	flex-direction: column;
+	// @extend %vid;
+	&__title {
+		// @extend %vid;
+	}
+
+	&__content {
+		// @extend %vid;
+	}
+
+	&__button {
+		// @extend %vid;
+		button {
+			background: $headcolor;
+			color: rgb(255, 255, 255);
+			letter-spacing: 2px;
+			font-weight: 700;
+			font-size: 25px;
+			padding: 10px 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+}
+
+.chance {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&__title {
+		width: 100%;
+		// @extend %vid;
+
+	}
+
+	&__amount {
+		width: 100%;
+		border-bottom: none;
+		// @extend %vid;
+
+	}
+
+}
+
 // ================================================================================
 .footer {
 	display: flex;
