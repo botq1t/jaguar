@@ -3,7 +3,7 @@
 // Файл обнуляющих стилей
 @import "nullstyle.scss";
 // ================================================================================
-$headcolor: rgb(22, 2, 119);
+$head-color: rgb(22, 2, 119);
 // ================================================================================
 %vid {
 	background: rgba(255, 0, 0, 0.15);
@@ -32,7 +32,7 @@ body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	border: 3px solid $headcolor;
+	border: 3px solid $head-color;
 	overflow: hidden;
 	background: url("../img/header/yager0.jpg") 0 0/33.33% 100% repeat-x;
 	height: 85px;
@@ -43,10 +43,10 @@ body {
 		background-size:  20% 100%;
 	}
 	@media (min-width: 375px) {
-		border: 4px solid $headcolor;
+		border: 4px solid $head-color;
 	}
 	@media (min-width: 425px) {
-		border: 5px solid $headcolor;
+		border: 5px solid $head-color;
 	}
 	p {
 		@extend %tshadow;
@@ -108,7 +108,7 @@ body {
 }
 // ================================================================================
 .navigation {
-	background: $headcolor;
+	background: $head-color;
 	&__raw {
 		display: flex;
 		align-items: center;
@@ -141,54 +141,101 @@ body {
 	}
 }
 // ================================================================================
-$genbordcolor: rgb(13, 5, 51);
+$card-board-color: rgb(13, 5, 51);
+$fsz-card-1: 18px;
+$fsz-card-2: 16px;
+$fsz-card-1-375: 21px;
+$fsz-card-2-375: 20px;
+$fsz-card-1-768: 26px;
+$fsz-card-2-768: 23px;
 
 .main {
+	border: 2px solid $head-color;
 	flex: 1 1 auto;
 	background: linear-gradient(to bottom, rgba(242,239,247,1) 0%,rgba(228,222,232,1) 50%,rgba(247,247,247,1) 100%);
-	display: flex;
-	flex-direction: column;
 	padding: 10px 0;
+	&__row {
+		display: flex;
+		flex-flow: column nowrap;
+		// min-height: 100%;
+		// min-width: 100%;
+		@media (min-width: 550px) {
+			flex-flow: row wrap;
+			justify-content: center;
+		}
+		// @extend %vid;
+	}
 	&__card {
 		background: rgba(220, 218, 224, 1);
-		border: 2px solid $genbordcolor;
+		border: 2px solid $card-board-color;
 		border-radius: 10px;
 		overflow: hidden;
 		margin: 0 0 20px 0;
 		min-height: 200px;
+		@media (min-width: 425px) {
+			min-height: 300px;
+		}
+		@media (min-width: 550px) {
+			margin: 10px;
+			min-height: 350px;
+			max-width: 350px;
+
+		}
+		// @extend %vid;
+
 		&-title {
-			background: $headcolor;
+			font-size: $fsz-card-1;
+			@media (min-width: 375px) {
+				font-size: $fsz-card-1-375;
+			}
+			@media (min-width: 768px) {
+				font-size: $fsz-card-1-768;
+			}
+			background: $head-color;
 			text-align: center;
-			font-size: 25px;
 			color: rgb(255, 255, 255);
 			font-weight: bold;
 			padding: 13px 5px;
-			border-bottom: 2px solid $genbordcolor;
+			border-bottom: 2px solid $card-board-color;
 			width: 100%;
+			@extend %tshadow;
 		}
 		&-content {
+			font-size: $fsz-card-2;
+			@media (min-width: 375px) {
+				font-size: $fsz-card-2-375;
+			}
+			@media (min-width: 768px) {
+				font-size: $fsz-card-2-768;
+			}
 			flex: 1 0 auto;
-			color: $headcolor;
+			color: $head-color;
 			text-align: center;
 			padding: 13px 5px;
-			font-size: 20px;
 			font-style: italic;
 			width: 100%;
 
 		}
 		&-footer {
-			background: $headcolor;
+			font-size: $fsz-card-1;
+			@media (min-width: 375px) {
+				font-size: $fsz-card-1-375;
+			}
+			@media (min-width: 768px) {
+				font-size: $fsz-card-1-768;
+			}
+			background: $head-color;
 			text-align: center;
-			font-size: 25px;
 			color: rgb(255, 255, 255);
 			font-weight: bold;
 			padding: 13px 5px;
-			border-top: 2px solid $genbordcolor;
+			border-top: 2px solid $card-board-color;
 			width: 100%;
+			@extend %tshadow;
 		}
 	}
 }
-
+// ================================================================================
 .generator {
 	display: flex;
 	flex-direction: column;
@@ -209,7 +256,7 @@ $genbordcolor: rgb(13, 5, 51);
 	}
 
 }
-
+// ================================================================================
 .chance {
 	height: auto;
 	display: flex;
@@ -228,20 +275,25 @@ $genbordcolor: rgb(13, 5, 51);
 	}
 
 }
-
 // ================================================================================
 .footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-	background: $headcolor;
+	background: $head-color;
 	text-align: center;
 	p {
+		font-size: $fsz-card-1;
+		@media (min-width: 375px) {
+			font-size: $fsz-card-1-375;
+		}
+		@media (min-width: 768px) {
+			font-size: $fsz-card-1-768;
+		}
 		@extend %tshadow;
 		letter-spacing: 2px;
 		color: rgb(255, 255, 255);
-		font-size: 18px;
 		font-weight: bold;
 	}
 }
