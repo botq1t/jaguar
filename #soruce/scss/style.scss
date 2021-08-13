@@ -4,6 +4,16 @@
 @import "nullstyle.scss";
 // ================================================================================
 $head-color: rgb(22, 2, 119);
+$card-board-color: rgb(13, 5, 51);
+
+$fsz-big: 18px;
+$fsz-big-375: 21px;
+$fsz-big-425: 25px;
+$fsz-big-768: 26px;
+
+$fsz-medium: 16px;
+$fsz-medium-375: 18px;
+$fsz-medium-768: 23px;
 // ================================================================================
 %vid {
 	background: rgba(255, 0, 0, 0.15);
@@ -18,56 +28,77 @@ body {
 }
 
 .container {
+	flex: 1 1 auto;
 	max-width: 100%;
-	padding: 0 10px;
+	margin: 0 auto;
+	padding: 0 15px;
+
+	&-navigation {
+		height: 100%;
+	}
+
+	@media (min-width: 768px) {
+		max-width: 768px;
+	}
+	@media (min-width: 1024px) {
+		max-width: 1024px;
+	}
 }
 // ================================================================================
 .wrapper {
 	min-height: 100%;
+	max-width: 100%;
 	display: flex;
 	flex-direction: column;
 }
 // ================================================================================
 .header {
+
+	&__row {
+		display: flex;
+		justify-content: center;
+	}
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	background: url("../img/header/yager0.jpg") 0 0/33.33% 100% repeat-x;
 	border: 3px solid $head-color;
 	overflow: hidden;
-	background: url("../img/header/yager0.jpg") 0 0/33.33% 100% repeat-x;
 	height: 85px;
-	@media (min-width: 550px) {
-		background-size:  25% 100%;
+
+	@media (min-width: 425px) {
+		background-size: 25% 100%;
+		height: 95px;
 	}
 	@media (min-width: 768px) {
-		background-size:  20% 100%;
+		background-size: 20% 100%;
+		height: 110px;
 	}
-	@media (min-width: 375px) {
-		border: 4px solid $head-color;
-	}
-	@media (min-width: 425px) {
-		border: 5px solid $head-color;
-	}
+
 	p {
-		@extend %tshadow;
-		position: relative;
-		color: rgb(255, 255, 255);
 		display: inline-flex;
-		align-items: center;
-		border-radius: 10px;
+		position: relative;
 		background: rgba(22, 2, 119, 0.9);
+		border-radius: 10px;
 		padding: 7px 10px;
+
+		align-items: center;
+		font-size: $fsz-big;
 		font-weight: 700;
-		font-size: 18px;
 		letter-spacing: 1px;
+		color: rgb(255, 255, 255);
+		@extend %tshadow;
+
 		@media (min-width: 375px) {
-			font-size: 22px;
-			letter-spacing: 2px;
+			font-size: $fsz-big-375;
 		}
 		@media (min-width: 425px) {
-			font-size: 25px;
-			letter-spacing: 2px;
+			font-size: $fsz-big-425;
 		}
+		@media (min-width: 768px) {
+			font-size: $fsz-big-768;
+		}
+
+
 		&::before {
 			content: "";
 			display: inline-block;
@@ -75,176 +106,212 @@ body {
 			margin: 0 3px 0 0;
 			height: 18px;
 			width: 18px;
+
 			@media (min-width: 375px) {
-				background-size: 20px auto;
-				height: 20px;
-				width: 20px;
+				background-size: $fsz-big-375;
+				height: $fsz-big-375;
+				width: $fsz-big-375;
 			}
 			@media (min-width: 425px) {
-				background-size: 25px auto;
-				height: 25px;
-				width: 25px;
+				background-size: $fsz-big-425;
+				height: $fsz-big-425;
+				width: $fsz-big-425;
+			}
+			@media (min-width: 768px) {
+				background-size: $fsz-big-768;
+				height: $fsz-big-768;
+				width: $fsz-big-768;
 			}
 		}
 		&::after {
 			content: "";
 			display: inline-block;
-			background: url("../img/header/smile2.svg") 0 /18px no-repeat;
+			background: url("../img/header/smile2.svg") 0 0/18px no-repeat;
 			margin: 0 0 0 3px;
 			height: 18px;
 			width: 18px;
+
 			@media (min-width: 375px) {
-				background-size: 20px auto;
-				height: 20px;
-				width: 20px;
+				background-size: $fsz-big-375;
+				height: $fsz-big-375;
+				width: $fsz-big-375;
 			}
 			@media (min-width: 425px) {
-				background-size: 25px auto;
-				height: 25px;
-				width: 25px;
+				background-size: $fsz-big-425;
+				height: $fsz-big-425;
+				width: $fsz-big-425;
+			}
+			@media (min-width: 768px) {
+				background-size: $fsz-big-768;
+				height: $fsz-big-768;
+				width: $fsz-big-768;
 			}
 		}
 	}
 }
 // ================================================================================
 .navigation {
+	@extend %vid;
+	display: flex;
+	align-items: center;
 	background: $head-color;
+	width: 100%;
+	height: 50px;
 	&__raw {
 		display: flex;
 		align-items: center;
-		overflow-y: auto;
-		height: 30px;
-		margin: 0 -10px;
+		overflow: auto;
+		height: 100%;
+		max-width: 100%;
 	}
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		height: 40px;
+
 	&__link {
-		flex: 1 0 auto;
-		// @extend %vid;
-		border-right: 1px solid rgb(255, 255, 255);
+		display: flex;
+		align-items: center;
+		flex: 0 0 auto;
+		// padding: 0 10px;
 		&:last-child {
-			border-right: none;
+			a {
+				border-right: none;
+			}
 		}
-		letter-spacing: 1px;
-		font-size: 18px;
-		font-style: italic;
-		padding: 0 10px;
-		color: white;
-		&:hover {
-			color: rgb(218, 221, 68);
-		}
-		&:active {
-			color: rgb(117, 186, 40);
+		a {
+			// display: block;
+			border-right: 1px solid white;
+			padding: 0 10px;
+			// margin: 0 0 0 -10px;
+
+			font-size: $fsz-big;
+			font-style: italic;
+			letter-spacing: 1px;
+			color: white;
+			@extend %tshadow;
+			&:hover {
+				color: rgb(218, 221, 68);
+			}
+			&:active {
+				color: rgb(117, 186, 40);
+			}
+
+			@media (min-width: 375px) {
+				font-size: $fsz-big-375;
+			}
 		}
 	}
 }
 // ================================================================================
-$card-board-color: rgb(13, 5, 51);
-$fsz-card-1: 18px;
-$fsz-card-2: 16px;
-$fsz-card-1-375: 21px;
-$fsz-card-2-375: 20px;
-$fsz-card-1-768: 26px;
-$fsz-card-2-768: 23px;
 
 .main {
 	border: 2px solid $head-color;
 	flex: 1 1 auto;
 	background: linear-gradient(to bottom, rgba(242,239,247,1) 0%,rgba(228,222,232,1) 50%,rgba(247,247,247,1) 100%);
-	padding: 10px 0;
+	padding: 5px 0;
 	&__row {
 		display: flex;
-		flex-flow: column nowrap;
-		// min-height: 100%;
-		// min-width: 100%;
-		@media (min-width: 550px) {
-			flex-flow: row wrap;
-			justify-content: center;
+		flex-flow: row wrap;
+		justify-content: center;
+		@media (min-width: 1024px) {
+			justify-content: flex-start;
 		}
-		// @extend %vid;
 	}
 	&__card {
+		display: flex;
+		flex-direction: column;
 		background: rgba(220, 218, 224, 1);
 		border: 2px solid $card-board-color;
 		border-radius: 10px;
 		overflow: hidden;
-		margin: 0 0 20px 0;
-		min-height: 200px;
-		@media (min-width: 425px) {
-			min-height: 300px;
-		}
-		@media (min-width: 550px) {
-			margin: 10px;
-			min-height: 350px;
-			max-width: 350px;
+		margin: 10px 10px;
+		min-height: 250px;
+		width: 250px;
 
+		@media (min-width: 375px) {
+			min-height: 280px;
 		}
-		// @extend %vid;
+		@media (min-width: 425px) {
+			min-height: 330px;
+			width: 280px;
+		}
+		@media (min-width: 1024px) {
+			min-height: 450px;
+			width: 340px;
+		}
 
 		&-title {
-			font-size: $fsz-card-1;
-			@media (min-width: 375px) {
-				font-size: $fsz-card-1-375;
-			}
-			@media (min-width: 768px) {
-				font-size: $fsz-card-1-768;
-			}
-			background: $head-color;
-			text-align: center;
-			color: rgb(255, 255, 255);
-			font-weight: bold;
-			padding: 13px 5px;
-			border-bottom: 2px solid $card-board-color;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
 			width: 100%;
+			background: $head-color;
+			border-bottom: 2px solid $card-board-color;
+
+			text-align: center;
+			font-size: $fsz-big;
+			font-weight: bold;
+			color: rgb(255, 255, 255);
 			@extend %tshadow;
+
+			@media (min-width: 375px) {
+				font-size: $fsz-big-375;
+				height: 55px;
+			}
+			@media (min-width: 1024px) {
+				font-size: $fsz-big-375;
+				height: 60px;
+			}
 		}
 		&-content {
-			font-size: $fsz-card-2;
-			@media (min-width: 375px) {
-				font-size: $fsz-card-2-375;
-			}
-			@media (min-width: 768px) {
-				font-size: $fsz-card-2-768;
-			}
 			flex: 1 0 auto;
-			color: $head-color;
-			text-align: center;
 			padding: 13px 5px;
-			font-style: italic;
 			width: 100%;
 
+			text-align: center;
+			font-size: $fsz-medium;
+			font-style: italic;
+			color: $head-color;
+
+			@media (min-width: 375px) {
+				font-size: $fsz-medium-375;
+			}
 		}
 		&-footer {
-			font-size: $fsz-card-1;
-			@media (min-width: 375px) {
-				font-size: $fsz-card-1-375;
-			}
-			@media (min-width: 768px) {
-				font-size: $fsz-card-1-768;
-			}
-			background: $head-color;
-			text-align: center;
-			color: rgb(255, 255, 255);
-			font-weight: bold;
-			padding: 13px 5px;
-			border-top: 2px solid $card-board-color;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
 			width: 100%;
+			background: $head-color;
+			border-top: 2px solid $card-board-color;
+
+			text-align: center;
+			letter-spacing: 1px;
+			font-weight: bold;
+			font-style: italic;
+			font-size: $fsz-big;
+			color: rgb(255, 255, 255);
 			@extend %tshadow;
+
+			@media (min-width: 375px) {
+				font-size: $fsz-big-375;
+				height: 55px;
+			}
+			@media (min-width: 1024px) {
+				font-size: $fsz-big-375;
+				height: 60px;
+			}
 		}
 	}
 }
 // ================================================================================
 .generator {
-	display: flex;
-	flex-direction: column;
-	// @extend %vid;
+	// display: flex;
+	// flex-direction: column;
 	&__title {
-		// @extend %vid;
+
 	}
 	&__content {
-		// @extend %vid;
+
 	}
 	&__button {
 		&:hover {
@@ -258,20 +325,18 @@ $fsz-card-2-768: 23px;
 }
 // ================================================================================
 .chance {
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	// height: auto;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: center;
 	&__title {
-		// @extend %vid;
+
 	}
 	&__amount {
-		// font-size: 35px;
-		// @extend %vid;
+
 	}
 	&__footer {
-		font-weight: normal;
-		font-style: italic;
+
 	}
 
 }
@@ -282,18 +347,21 @@ $fsz-card-2-768: 23px;
 	justify-content: center;
 	height: 40px;
 	background: $head-color;
-	text-align: center;
+
+	@media (min-width: 1024px) {
+		height: 50px;
+	}
 	p {
-		font-size: $fsz-card-1;
-		@media (min-width: 375px) {
-			font-size: $fsz-card-1-375;
-		}
-		@media (min-width: 768px) {
-			font-size: $fsz-card-1-768;
-		}
-		@extend %tshadow;
+		text-align: center;
+		font-size: $fsz-big;
+		font-weight: bold;
 		letter-spacing: 2px;
 		color: rgb(255, 255, 255);
-		font-weight: bold;
+		@extend %tshadow;
+
+		@media (min-width: 375px) {
+			font-size: $fsz-big-375;
+		}
 	}
 }
+// ================================================================================
