@@ -61,6 +61,9 @@ body {
 	display: flex;
 	align-items: center;
 	background: url("../img/header/yager0.jpg") 0 0/33.33% 100% repeat-x;
+	// background-image: url("../img/header/yager0.jpg");
+	// background-size: 33.33% 100%;
+	// background-repeat: repeat-x;
 	border: 3px solid $head-color;
 	overflow: hidden;
 	height: 85px;
@@ -151,7 +154,6 @@ body {
 }
 // ================================================================================
 .navigation {
-	@extend %vid;
 	display: flex;
 	align-items: center;
 	background: $head-color;

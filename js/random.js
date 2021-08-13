@@ -1,9 +1,13 @@
 const rns = document.querySelector('.generator__content');
 const uni = document.querySelector('.chance__amount');
 const uni2 = document.querySelector('.chance');
-console.log(rns.innerText);
-console.log(uni.innerText);
-console.log(uni2);
+
+document.querySelector('.header').style.backgroundImage = `url("img/header/yager${Math.round(Math.random()*4)}.jpg")`;
+
+
+// console.log(rns.innerText);
+// console.log(uni.innerText);
+// console.log(uni2);
 var uniq=Math.floor(1/(n*s)*100*1000)/1000;
 
 function randomer() {
