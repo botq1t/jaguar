@@ -109,7 +109,7 @@ let names = [
 		];
 var n=names.length;
 var rn=Math.round(Math.random()*(n-1))
-console.log("Name: "+n, rn)
+console.log("Name: "+n, rn, names[n-1])
 let namessort = [];
 namessort = names.slice();
 namessort.sort();
