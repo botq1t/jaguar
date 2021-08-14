@@ -11,9 +11,9 @@ $fsz-big-375: 21px;
 $fsz-big-425: 25px;
 $fsz-big-768: 26px;
 
-$fsz-medium: 16px;
-$fsz-medium-375: 18px;
-$fsz-medium-768: 23px;
+$fsz-medium: 20px;
+$fsz-medium-375: 24px;
+$fsz-medium-768: 26px;
 // ================================================================================
 %vid {
 	background: rgba(255, 0, 0, 0.15);
@@ -50,6 +50,7 @@ body {
 	max-width: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 // ================================================================================
 .header {
@@ -154,6 +155,9 @@ body {
 }
 // ================================================================================
 .navigation {
+	position: sticky;
+	top: 0;
+	z-index: 5;
 	display: flex;
 	align-items: center;
 	background: $head-color;
@@ -171,7 +175,6 @@ body {
 		display: flex;
 		align-items: center;
 		flex: 0 0 auto;
-		// padding: 0 10px;
 		&:last-child {
 			a {
 				border-right: none;
@@ -188,8 +191,11 @@ body {
 			letter-spacing: 1px;
 			color: white;
 			@extend %tshadow;
+
+			transition-duration: 800ms;
 			&:hover {
 				color: rgb(218, 221, 68);
+				transition-duration: 200ms;
 			}
 			&:active {
 				color: rgb(117, 186, 40);
@@ -273,9 +279,12 @@ body {
 			font-style: italic;
 			color: $head-color;
 			text-shadow: 0 0 2px black;
-
+			transition: color 300ms ease-out 0s, font-weight 600ms ease-out 0s;
 			@media (min-width: 375px) {
 				font-size: $fsz-medium-375;
+			}
+			@media (min-width: 768px) {
+				font-size: $fsz-medium-768;
 			}
 		}
 		&-footer {
@@ -317,6 +326,8 @@ body {
 
 	}
 	&__button {
+		transition-property: all, background;
+		transition-duration: 500ms, 200ms;
 		&:hover {
 			background: rgb(66, 191, 195);
 		}
@@ -328,11 +339,7 @@ body {
 }
 // ================================================================================
 .chance {
-	// height: auto;
-	// display: flex;
-	// flex-direction: column;
-	// align-items: center;
-	display: none;
+	// display: none;
 	&__title {
 
 	}

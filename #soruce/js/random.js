@@ -1,6 +1,6 @@
 const rns = document.querySelector('.generator__content');
 const uni = document.querySelector('.chance__amount');
-const uni2 = document.querySelector('.chance');
+const uni2 = document.querySelector('.chance__footer');
 
 document.querySelector('.header').style.backgroundImage = `url("img/header/yager${Math.round(Math.random()*4)}.jpg")`;
 
@@ -17,11 +17,9 @@ function randomer() {
   rns.innerText = `${names[rn]} ${surnames[rs]}`
   rns.style.color = `#d01d1d`;
   rns.style.fontWeight = `bold`;
-  rns.style.fontSize = `30px`;
 
-  uni2.style.display = `flex`;
   uni.innerText = `${uniq}%`
+  uni2.innerText = `Not bad ;)`
   uni.style.color = `#d01d1d`;
   uni.style.fontWeight = `bold`;
-  uni.style.fontSize = `30px`;
 }
