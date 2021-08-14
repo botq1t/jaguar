@@ -40,10 +40,11 @@ let surnames = 	[
 		"Гольджи",
 		"Годзилла",
 		"Копатель",
+		"Лепрекон",
 		];
 var s=surnames.length;
 var rs=Math.round(Math.random()*(s-1))
-console.log("Surname: "+s, rs)
+console.log("Surname: "+s, rs, surnames[s-1])
 let surnamessort = [];
 surnamessort = surnames.slice();
 surnamessort.sort();
