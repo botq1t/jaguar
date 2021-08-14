@@ -1,6 +1,6 @@
-const rns = document.querySelector('.generator__content');
-const uni = document.querySelector('.chance__amount');
-const uni2 = document.querySelector('.chance__footer');
+const rns = document.querySelector('.gen__random');
+const uni = document.querySelector('.gen__chance-2');
+const uni2 = document.querySelector('.gen__footer');
 
 document.querySelector('.header').style.backgroundImage = `url("img/header/yager${Math.round(Math.random()*4)}.jpg")`;
 
@@ -14,12 +14,14 @@ function randomer() {
   var rn = Math.round(Math.random()*(n-1));
   var rs = Math.round(Math.random()*(s-1));
 
+  rns.style.display = `inline`;
   rns.innerText = `${names[rn]} ${surnames[rs]}`
-  rns.style.color = `#d01d1d`;
-  rns.style.fontWeight = `bold`;
+  rns.style.color = `#cb0c0c`;
 
+  uni.style.display = `inline`;
   uni.innerText = `${uniq}%`
-  uni2.innerText = `Not bad ;)`
-  uni.style.color = `#d01d1d`;
-  uni.style.fontWeight = `bold`;
+  // uni.style.color = `#cb0c0c`;
+
+  uni2.style.display = `block`;
+  uni2.innerText = `Not Bad ;)`
 }
