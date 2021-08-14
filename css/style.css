@@ -326,27 +326,6 @@ body {
   overflow: hidden;
   margin: 10px 0 0 0;
 }
-@media (min-width: 375px) {
-  .main__card {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 280px;
-            flex: 1 0 280px;
-  }
-}
-@media (min-width: 425px) {
-  .main__card {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 330px;
-            flex: 1 0 330px;
-  }
-}
-@media (min-width: 1024px) {
-  .main__card {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 450px;
-            flex: 1 0 450px;
-  }
-}
 .main__card-title {
   padding: 6px 10px;
   background: #a19eb8;
