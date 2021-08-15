@@ -1,9 +1,13 @@
-const rns = document.querySelector('.main__card-gen-random');
-const uni = document.querySelector('.main__card_gen-chance');
-const uni2 = document.querySelector('.main__card_gen-footer');
+const rns = document.querySelector('.gen__random');
+const uni = document.querySelector('.gen__chance-2');
+const uni2 = document.querySelector('.gen__footer');
 
 document.querySelector('.header').style.backgroundImage = `url("img/header/yager${Math.round(Math.random()*4)}.jpg")`;
 
+
+// console.log(rns.innerText);
+// console.log(uni.innerText);
+// console.log(uni2);
 var uniq=Math.floor(1/(n*s)*100*1000)/1000;
 
 function randomer() {
@@ -16,6 +20,7 @@ function randomer() {
 
   uni.style.display = `inline`;
   uni.innerText = `${uniq}%`
+  // uni.style.color = `#cb0c0c`;
 
   uni2.style.display = `block`;
   uni2.innerText = `Not Bad ;)`

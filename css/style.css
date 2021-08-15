@@ -86,19 +86,9 @@ body.lock {
 }
 
 .container {
-  max-width: 100%;
+  max-width: 930px;
   margin: 0 auto;
   padding: 0 15px;
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
 }
 
 .wrapper {
@@ -436,15 +426,15 @@ body.lock {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   background: #dcdae0;
-  border: 2px solid #656464;
   border-radius: 10px;
   overflow: hidden;
   margin: 10px 0;
+  -webkit-box-shadow: 1px 3px 7px black;
+          box-shadow: 1px 3px 7px black;
 }
 .main__card-title {
   padding: 6px 10px;
   background: #a19eb8;
-  border-bottom: 1px solid #656464;
 }
 .main__card-title p {
   text-align: center;
@@ -499,7 +489,6 @@ body.lock {
 }
 .main__card-footer {
   background: #a19eb8;
-  border-top: 1px solid #656464;
   padding: 6px 10px;
   text-align: center;
   font-weight: bold;
@@ -516,8 +505,7 @@ body.lock {
     font-size: 21px;
   }
 }
-
-.gen__button {
+.main__card_gen-button {
   position: relative;
   top: 0;
   margin: 10px 0;
@@ -539,7 +527,7 @@ body.lock {
   -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.66);
           box-shadow: 0 3px 0 rgba(0, 0, 0, 0.66);
 }
-.gen__button:hover {
+.main__card_gen-button:hover {
   -webkit-transition-duration: 200ms;
           transition-duration: 200ms;
   top: 2px;
@@ -547,17 +535,17 @@ body.lock {
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.66);
   background: rgba(224, 186, 21, 0.57);
 }
-.gen__button:active {
+.main__card_gen-button:active {
   background: #42bfc3;
 }
-.gen__chance-2 {
+.main__card_gen-chance {
   display: none;
   color: #cb0c0c;
 }
-.gen__random {
+.main__card_gen-footer {
   display: none;
 }
-.gen__footer {
+.main__card_gen-random {
   display: none;
 }
 
