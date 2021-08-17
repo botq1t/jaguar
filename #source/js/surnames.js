@@ -43,13 +43,63 @@ let surnames = 	[
 		"Лепрекон",
 		"Литота",
 		];
+let surnames_c = 	[
+	"Ледобас",
+	"Литорас",
+	"Литак",
+	"Литаврасина",
+	"Ледамыр",
+	"Шумовар",
+	"Ледоруб",
+	"Литаворище",
+	"Жонглёр",
+	"Матрас",
+	"Кентавр",
+	"Минотавр",
+	"Живанши",
+	"Лионель",
+	"Леопольд",
+	"Акварель",
+	"Линолеум",
+	"Юбиляр",
+	"Каламбур",
+	"Цвикль",
+	"Сыровар",
+	"Литовский вор",
+	"Литовский мент",
+	"Гольджи",
+	"Годзилла",
+	"Копатель",
+	"Лепрекон",
+	"Литота",
+];
+let surnames_a = 	[
+	"Летуаль",
+	"Самовар",
+	"Литавор (ударение на О)",
+	"Литавор (ударение на А)",
+];
+let surnames_r = 	[
+	"Ледовар",
+	"Ледокол",
+	"Литомент",
+	"Литаврас",
+	"Лореаль",
+	"Клитовор",
+	"Листожор",
+	"Сыкватар",
+	"Мойдодыр",
+	"Живодёр",
+	"Ювелир",
+];
+// Common - 75%
+// Arcane - 5%
+// Rare - 20%
+// ======================
 var s=surnames.length;
-var rs=Math.round(Math.random()*(s-1))
-console.log("Surname: "+s, rs, surnames[s-1])
+var rs=Math.floor(Math.random()*(s));
+console.log("Surname: "+s, rs, surnames[s-1]);
+// Sorting
 let surnamessort = [];
 surnamessort = surnames.slice();
 surnamessort.sort();
-//console.log("Unsorted");
-//console.log(surnames);
-//console.log("Sorted");
-//console.log(surnamessort);

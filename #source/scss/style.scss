@@ -23,6 +23,19 @@ $fsz-content-768: 26px;
 %tshadow {
 	text-shadow: 0 0 5px rgb(0, 0, 0);
 }
+
+$maxWidth: 1024;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin adaptiv-h-w-smiles($pcSize1, $mobSize1) {
+	$addSize1: $pcSize1 - $mobSize1;
+	$maxWidth: $maxWidth - 320;
+	width: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+	height: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+}
 // ================================================================================
 body {
 	font-family: Merriweather;
@@ -52,7 +65,7 @@ body {
 	width: 100%;
 	display: flex;
 	align-items: center;
-	background: url("../img/header/yager0.jpg") 0 0 / contain round;
+	background: url("../img/header/yager1.jpg") 0 0 / contain round;
 	border: 3px solid $head-color;
 	z-index: 20;
 	&__row {
@@ -70,69 +83,34 @@ body {
 			padding: 7px 20px;
 
 			text-align: center;
-			font-size: $fsz-title;
+			// font-size: $fsz-title;
 			font-weight: 700;
 			letter-spacing: 1px;
 			color: rgb(255, 255, 255);
 			@extend %tshadow;
-
-			@media (min-width: 375px) {
-				font-size: $fsz-title-375;
+			@include adaptiv-font(28, 17);
+			@media (min-width: 1024px) {
+				font-size: 28px;
 			}
-			@media (min-width: 425px) {
-				font-size: $fsz-title-425;
-			}
-			@media (min-width: 768px) {
-				font-size: $fsz-title-768;
-			}
-
 
 			&::before {
 				content: "";
-				display: inline-block;
-				background: url("../img/header/smile1.svg") 0 0/18px no-repeat;
+				background: url("../img/header/smile1.svg") 0 0/100% no-repeat;
 				margin: 0 3px 0 0;
-				height: 18px;
-				width: 18px;
-
-				@media (min-width: 375px) {
-					background-size: $fsz-title-375;
-					height: $fsz-title-375;
-					width: $fsz-title-375;
-				}
-				@media (min-width: 425px) {
-					background-size: $fsz-title-425;
-					height: $fsz-title-425;
-					width: $fsz-title-425;
-				}
-				@media (min-width: 768px) {
-					background-size: $fsz-title-768;
-					height: $fsz-title-768;
-					width: $fsz-title-768;
-				}
 			}
 			&::after {
 				content: "";
-				display: inline-block;
-				background: url("../img/header/smile2.svg") 0 0/18px no-repeat;
+				background: url("../img/header/smile2.svg") 0 0/100% no-repeat;
 				margin: 0 0 0 3px;
+			}
+			&::before, &::after {
+				display: inline-block;
 				height: 18px;
 				width: 18px;
-
-				@media (min-width: 375px) {
-					background-size: $fsz-title-375;
-					height: $fsz-title-375;
-					width: $fsz-title-375;
-				}
-				@media (min-width: 425px) {
-					background-size: $fsz-title-425;
-					height: $fsz-title-425;
-					width: $fsz-title-425;
-				}
-				@media (min-width: 768px) {
-					background-size: $fsz-title-768;
-					height: $fsz-title-768;
-					width: $fsz-title-768;
+				@include adaptiv-h-w-smiles (26, 17);
+				@media (min-width: 1024px) {
+					width: 26px;
+					height: 26px;
 				}
 			}
 		}
@@ -238,11 +216,10 @@ body {
 		}
 	}
 	&__link {
-		flex: 1 0 auto;
 		z-index: 1;
+		margin: 10px 0;
 		@media (max-width: 768px) {
 			position: relative;
-			flex: none;
 			margin: 0 0 30px 0;
 			&:nth-child(1)::after {
 				content: "";
@@ -254,7 +231,6 @@ body {
 				height: $fsz-content+3;
 			}
 		}
-		margin: 10px 0;
 
 		&:last-child {
 			a {
@@ -272,6 +248,7 @@ body {
 				border-bottom: 1px solid white;
 				padding: 0 0 10px 0;
 			}
+			white-space: nowrap;
 			border-right: 1px solid white;
 			border-left: 1px solid white;
 			padding: 0 10px;
@@ -306,63 +283,28 @@ body {
 		display: flex;
 		flex-direction: column;
 	}
-	&__card {
-		display: flex;
-		flex-direction: column;
-		flex: 1 0 auto;
-		background: rgba(220, 218, 224, 1);
-		border-radius: 10px;
-		overflow: hidden;
-		margin: 10px 0;
-		box-shadow: 1px 3px 7px black;
-		&-title {
-			padding: 6px 10px;
-			background: rgb(161, 158, 184);
-			p {
-				text-align: center;
-				font-size: $fsz-title;
-				font-weight: bold;
-				color: rgb(255, 255, 255);
-				@extend %tshadow;
-
-				@media (min-width: 375px) {
-					font-size: $fsz-title-375;
-				}
-				@media (min-width: 1024px) {
-					font-size: $fsz-title-375;
-				}
+		&_gen {
+			&-footer {
 			}
 		}
-		&-content {
-			display: flex;
-			flex-direction: column;
-			flex: 1 0 auto;
-			padding: 10px 20px;
-			p {
-				font-size: $fsz-content;
-				line-height: $fsz-content+4;
-				margin: 5px 0;
-				font-style: italic;
-				color: $head-color;
-				text-shadow: 0 0 2px black;
-				transition: color 300ms ease-out 0s, font-weight 600ms ease-out 0s;
-				@media (min-width: 375px) {
-					font-size: $fsz-content-375;
-					line-height: $fsz-content-375+4;
-				}
-				@media (min-width: 768px) {
-					font-size: $fsz-content-768;
-					line-height: $fsz-content-768+5;
-				}
-			}
-		}
-		&-footer {
-			background: rgb(161, 158, 184);
-			padding: 6px 10px;
+}
 
+.card {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+	background: rgba(220, 218, 224, 1);
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 10px 0;
+	box-shadow: 2px 2px 3px black;
+	&__title {
+		padding: 6px 10px;
+		background: rgb(161, 158, 184);
+		p {
 			text-align: center;
-			font-weight: bold;
 			font-size: $fsz-title;
+			font-weight: bold;
 			color: rgb(255, 255, 255);
 			@extend %tshadow;
 
@@ -373,50 +315,106 @@ body {
 				font-size: $fsz-title-375;
 			}
 		}
-
-		&_gen {
-			&-button{
-				position: relative;
-				top: 0;
-				margin: 10px 0;
-				padding: 5px 0;
-				width: 120px;
-				z-index: 0;
-
-				font-size: $fsz-content;
-				font-weight: bold;
-				font-style: italic;
-				letter-spacing: 2px;
-				transition-duration: 400ms;
-				transition-delay: 0s;
-
-				background: rgb(229, 229, 233);
-				border: 1px solid $head-color;
-				color: $head-color;
-				border-radius: 20px;
-				box-shadow: 0 3px 0 rgba(0, 0, 0, 0.66);
-				&:hover {
-					transition-duration: 200ms;
-					top: 2px;
-					box-shadow: 0 1px 0 rgba(0, 0, 0, 0.66);
-					background: rgba(224, 186, 21, 0.57);
-				}
-				&:active {
-					background: rgb(66, 191, 195);
-				}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		padding: 10px 20px;
+		p {
+			font-size: $fsz-content;
+			line-height: $fsz-content+4;
+			margin: 5px 0;
+			font-style: italic;
+			color: $head-color;
+			text-shadow: 0 0 2px black;
+			transition: color 300ms ease-out 0s, font-weight 600ms ease-out 0s;
+			@media (min-width: 375px) {
+				font-size: $fsz-content-375;
+				line-height: $fsz-content-375+4;
 			}
-			&-chance {
-				display: none;
-				color: rgb(203, 12, 12);
-			}
-			&-footer {
-				display: none;
-			}
-			&-random {
-				display: none;
+			@media (min-width: 768px) {
+				font-size: $fsz-content-768;
+				line-height: $fsz-content-768+5;
 			}
 		}
 	}
+	&__footer {
+		background: rgb(161, 158, 184);
+		padding: 6px 10px;
+
+		text-align: center;
+		font-weight: bold;
+		font-size: $fsz-title;
+		color: rgb(255, 255, 255);
+		@extend %tshadow;
+
+		@media (min-width: 375px) {
+			font-size: $fsz-title-375;
+		}
+		@media (min-width: 1024px) {
+			font-size: $fsz-title-375;
+		}
+	}
+}
+
+.gen {
+
+	&__content {
+		align-items: center;
+	}
+
+	&__uniq {
+		color: rgb(203, 12, 12);
+	}
+
+	&__random {
+		@media (max-width: 425px) {
+			display: flex;
+			flex-direction: column;
+			span {
+				margin: 5px 0;
+				text-align: center;
+			}
+		}
+	}
+
+	&__button {
+		position: relative;
+		top: 0;
+		margin: 10px 0;
+		padding: 5px 0;
+		width: 120px;
+		z-index: 0;
+
+		font-size: $fsz-content;
+		font-weight: bold;
+		font-style: italic;
+		letter-spacing: 2px;
+		transition-duration: 400ms;
+		transition-delay: 0s;
+
+		background: rgb(229, 229, 233);
+		border: 1px solid $head-color;
+		color: $head-color;
+		border-radius: 20px;
+		box-shadow: 0 3px 0 rgba(0, 0, 0, 0.66);
+		&:hover {
+			transition-duration: 200ms;
+			top: 2px;
+			box-shadow: 0 1px 0 rgba(0, 0, 0, 0.66);
+			background: rgba(224, 186, 21, 0.57);
+		}
+		&:active {
+			background: rgb(66, 191, 195);
+		}
+
+	}
+
+	&__footer {
+		display: none;
+	}
+
 }
 // ================================================================================
 .footer {
@@ -441,5 +439,22 @@ body {
 			font-size: $fsz-title-375;
 		}
 	}
+}
+
+.arcane, .rare, .common {
+	border-radius: 20px;
+	padding: 3px 10px;
+}
+.arcane {
+	background: rgb(255, 17, 17);
+	color: rgb(255, 255, 255);
+}
+.rare {
+	background: rgb(28, 17, 255);
+	color: rgb(255, 255, 255);
+}
+.common {
+	background: rgb(158, 158, 158);
+	color: rgb(255, 255, 255);
 }
 // ================================================================================

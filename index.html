@@ -37,17 +37,18 @@
       <main class="main">
         <div class="container">
           <div class="main__row">
-            <div class="main__card">
-              <div class="main__card-title">
+            <div class="card gen">
+              <div class="card__title">
                 <p>Generator: </p>
               </div>
-              <div class="main__card-content">
-                <p class="gen__combination">Today is:</p>
-                <p class="main__card-gen-random"></p>
-                <button class="main__card_gen-button" type="button" name="Generate"  onclick="randomer()">Generate</button>
-                <p>The uniqueness of the combination is: <span class="main__card_gen-chance">x%</span></p>
+              <div class="card__content gen__content">
+                <p>The uniqueness of each combination is: <span class="gen__uniq" id="uniqueness"></span></p>
+                <p>Today is:</p>
+                <p class="gen__random" id="ran"><span id="name"></span> <span id="surname"></span></p>
+                <button class="gen__button" type="button" name="Generate" id="ranbut">Generate</button>
               </div>
-              <div class="main__card-footer main__card_gen-footer">
+              <div class="card__footer gen__footer" id="genfoo">
+                <p id="text_rarity"></p>
               </div>
             </div>
           </div>
