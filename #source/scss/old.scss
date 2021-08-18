@@ -1,0 +1,186 @@
+$maxWidth: 1024;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+.old {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease 0s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	&__card {
+    transition: transform 300ms ease 0s;
+    transform: scale(0);
+
+    &.active {
+      transform: scale(1);
+        transition: transform 300ms ease 300ms;
+    }
+
+    background: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    max-height: 90%;
+    max-width: 90%;
+    overflow: auto;
+	}
+
+	&__title {
+    // margin: 0 0 10px 0;
+    padding: 0 0 10px 0;
+    text-align: center;
+    @include adaptiv-font(25, 20);
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	}
+
+	&__gen {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	}
+
+	&__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 100%;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    // padding: 7px 0;
+    height: 30px;
+    margin: 0 0 10px 0;
+    border-radius: 12px;
+	}
+
+	&__button {
+    text-align: center;
+    flex: 0 1 48%;
+    font-size: 16px;
+    padding: 7px 0;
+    background: rgba(0, 18, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease 0s;
+    border-radius: 12px;
+    &:hover {
+      background: rgba(0, 18, 255, 0.3);
+      transform: scale(1.05);
+    }
+    &:active {
+      transition: all 50ms ease 0s;
+      background: rgba(0, 18, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+	}
+
+  &__close {
+    margin: 10px 0 0 0;
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+    background: rgba(0, 18, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease 0s;
+    border-radius: 12px;
+    &:hover {
+      background: rgba(0, 18, 255, 0.3);
+      transform: scale(1.05);
+    }
+    &:active {
+      transition: all 50ms ease 0s;
+      background: rgba(0, 18, 255, 0.4);
+      transform: scale(1.05);
+    }
+  }
+
+
+}
+
+.nslist {
+  padding: 10px 0 0 0;
+	&__title {
+
+    &.active {
+      &:after, &:before {
+        background: rgb(255, 14, 14);
+        transition: all 400ms ease 0s;
+      }
+      &:after {
+        transform: rotate(-45deg)
+      }
+      &:before {
+        transform: rotate(45deg)
+      }
+
+    }
+
+    display: inline-block;
+    position: relative;
+    font-size: 18px;
+    cursor: pointer;
+    &:after, &:before {
+      content: "";
+      background: rgb(0, 0, 0);
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      width: 8px;
+      height: 2px;
+      transition: all 400ms ease 0s;
+    }
+    &:after {
+      transform: rotate(45deg);
+      right: -20px;
+    }
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    // &.active {
+    //
+    // }
+	}
+
+	&__marks {
+    display: none;
+    max-height: 100px;
+    overflow: auto;
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 20px;
+    font-style: italic;
+    // &.active {
+    //
+    // }
+    @media (min-height: 700px) {
+      max-height: 160px;
+    }
+    @media (min-height: 850px) {
+      max-height: 220px;
+    }
+	}
+
+}
