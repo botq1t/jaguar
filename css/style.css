@@ -229,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 .nslist__title.active:after, .nslist__title.active:before {
-  background: #ff0e0e;
+  background: #9464dd;
   -webkit-transition: all 400ms ease 0s;
   transition: all 400ms ease 0s;
 }

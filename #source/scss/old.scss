@@ -125,7 +125,8 @@ $maxWidth: 1024;
 
     &.active {
       &:after, &:before {
-        background: rgb(255, 14, 14);
+        // background: rgb(255, 14, 14);
+        background: rgb(148, 100, 221);
         transition: all 400ms ease 0s;
       }
       &:after {
