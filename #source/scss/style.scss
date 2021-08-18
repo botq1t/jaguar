@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+// ================================================================================
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+@import "old.scss";
+
+// ================================================================================
+$head-color: rgb(22, 2, 119);
+$card-board-color: rgb(101, 100, 100);
+
+$fsz-title: 20px;
+$fsz-title-375: 21px;
+$fsz-title-425: 25px;
+$fsz-title-768: 26px;
+
+$fsz-content: 17px;
+$fsz-content-375: 24px;
+$fsz-content-425: 24px;
+$fsz-content-768: 26px;
+// ================================================================================
+%vid {
+	background: rgba(255, 0, 0, 0.15);
+	outline: 1px solid blue;
+}
+%tshadow {
+	text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+$maxWidth: 1024;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin adaptiv-h-w-smiles($pcSize1, $mobSize1) {
+	$addSize1: $pcSize1 - $mobSize1;
+	$maxWidth: $maxWidth - 320;
+	width: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+	height: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+}
+// ================================================================================
+body {
+	font-family: Merriweather;
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.container {
+	max-width: 930px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+// ================================================================================
+.wrapper {
+	min-height: 100%;
+	// max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	// overflow: hidden;
+}
+// ================================================================================
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: url("../img/header/yager1.jpg") 0 0 / contain round;
+	border: 3px solid $head-color;
+	z-index: 20;
+	&__row {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 85px;
+	}
+	&__text {
+		p {
+			display: flex;
+			background: rgba(22, 2, 119, 0.85);
+			border-radius: 20px;
+			padding: 7px 20px;
+
+			text-align: center;
+			// font-size: $fsz-title;
+			font-weight: 700;
+			letter-spacing: 1px;
+			color: rgb(255, 255, 255);
+			@extend %tshadow;
+			@include adaptiv-font(28, 17);
+			@media (min-width: 1024px) {
+				font-size: 28px;
+			}
+
+			&::before {
+				content: "";
+				background: url("../img/header/smile1.svg") 0 0/100% no-repeat;
+				margin: 0 3px 0 0;
+			}
+			&::after {
+				content: "";
+				background: url("../img/header/smile2.svg") 0 0/100% no-repeat;
+				margin: 0 0 0 3px;
+			}
+			&::before, &::after {
+				display: inline-block;
+				height: 18px;
+				width: 18px;
+				@include adaptiv-h-w-smiles (26, 17);
+				@media (min-width: 1024px) {
+					width: 26px;
+					height: 26px;
+				}
+			}
+		}
+	}
+}
+// ================================================================================
+.navigation {
+	position: fixed;
+	top: 91px;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	&::before {
+		content: "";
+		background: $head-color;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+	&__raw {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 40px;
+		@media (max-width: 768px) {
+			justify-content: flex-start;
+		}
+	}
+
+	&__burger {
+		display: none;
+		@media (max-width: 768px) {
+			display: block;
+			position: relative;
+			top: -2px;
+			left: 0;
+			width: 30px;
+			height: 20px;
+			z-index: 1;
+
+			&::before, &::after {
+				content: "";
+				background: rgb(255, 255, 255);
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				transition: all 300ms ease 0s;
+			}
+			&::before {
+				top: 0;
+
+			}
+			&::after {
+				bottom: 0;
+			}
+			span {
+				background: rgb(255, 255, 255);
+				position: absolute;
+				left: 0;
+				top: 9px;
+				width: 100%;
+				height: 2px;
+				transition: all 300ms ease 0s;
+			}
+
+			&.active {
+        &::before {
+          transform: rotate(45deg);
+          top: 9px;
+        }
+        &::after {
+          transform: rotate(-45deg);
+          bottom: 9px;
+        }
+        span {
+          transform: scale(0);
+        }
+			}
+		}
+	}
+
+	&__menu {
+		display: flex;
+		overflow: auto;
+		@media (max-width: 768px) {
+			flex-direction: column;
+			justify-content: flex-start;
+			position: fixed;
+			padding: 50px 0 75px 15px;
+			top: 91px;
+			left: -100%;
+			width: 200px;
+			height: 100%;
+			background: rgba(22, 2, 119, 0.95);
+			transition: left 300ms ease-in-out 0s;
+			&.active {
+				left: 0;
+			}
+		}
+	}
+	&__link {
+		z-index: 1;
+		margin: 10px 0;
+		@media (max-width: 768px) {
+			position: relative;
+			margin: 0 0 30px 0;
+			&:nth-child(1)::after {
+				content: "";
+				position: absolute;
+				top: 2px;
+				margin: 0 0 0 5px;
+				background: url("../img/navigation/random.svg") 0 0 / auto 100% no-repeat;
+				width: $fsz-content+3;
+				height: $fsz-content+3;
+			}
+		}
+
+		&:last-child {
+			a {
+				border-right: none;
+			}
+		}
+		&:first-child {
+			a {
+				border-left: none;
+			}
+		}
+		a {
+			@media (max-width: 768px) {
+				border: none;
+				border-bottom: 1px solid white;
+				padding: 0 0 10px 0;
+			}
+			white-space: nowrap;
+			border-right: 1px solid white;
+			border-left: 1px solid white;
+			padding: 0 10px;
+
+			font-size: $fsz-content;
+			font-style: italic;
+			letter-spacing: 1px;
+			color: white;
+			@extend %tshadow;
+
+			transition: color 800ms ease 0s;
+			&:hover {
+				color: rgb(218, 221, 68);
+				transition-duration: color 200ms ease 0s;
+			}
+			&:active {
+				color: rgb(117, 186, 40);
+			}
+
+			@media (min-width: 375px) {
+				font-size: $fsz-title-375;
+			}
+		}
+	}
+}
+// ================================================================================
+.main {
+	padding: 131px 0 0 0;
+	flex: 1 1 auto;
+	background: linear-gradient(to bottom, rgba(242,239,247,1) 0%,rgba(228,222,232,1) 50%,rgba(247,247,247,1) 100%);
+	&__row {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+	background: rgba(220, 218, 224, 1);
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 10px 0;
+	box-shadow: 2px 2px 3px black;
+	&__title {
+		padding: 6px 10px;
+		background: rgb(161, 158, 184);
+		p {
+			text-align: center;
+			font-size: $fsz-title;
+			font-weight: bold;
+			color: rgb(255, 255, 255);
+			@extend %tshadow;
+
+			@media (min-width: 375px) {
+				font-size: $fsz-title-375;
+			}
+			@media (min-width: 1024px) {
+				font-size: $fsz-title-375;
+			}
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		padding: 10px 20px;
+		p {
+			font-size: $fsz-content;
+			line-height: $fsz-content+4;
+			margin: 5px 0;
+			font-style: italic;
+			color: $head-color;
+			text-shadow: 0 0 2px black;
+			transition: color 300ms ease-out 0s, font-weight 600ms ease-out 0s;
+			@media (min-width: 375px) {
+				font-size: $fsz-content-375;
+				line-height: $fsz-content-375+4;
+			}
+			@media (min-width: 768px) {
+				font-size: $fsz-content-768;
+				line-height: $fsz-content-768+5;
+			}
+		}
+	}
+	&__footer {
+		background: rgb(161, 158, 184);
+		padding: 6px 10px;
+
+		text-align: center;
+		font-weight: bold;
+		font-size: $fsz-title;
+		color: rgb(255, 255, 255);
+		@extend %tshadow;
+
+		@media (min-width: 375px) {
+			font-size: $fsz-title-375;
+		}
+		@media (min-width: 1024px) {
+			font-size: $fsz-title-375;
+		}
+	}
+}
+
+.gen {
+
+	&__content {
+		align-items: center;
+	}
+
+	&__uniq {
+		color: rgb(203, 12, 12);
+	}
+
+	&__random {
+		@media (max-width: 550px) {
+			display: flex;
+			flex-direction: column;
+			span {
+				margin: 5px 0;
+				text-align: center;
+			}
+		}
+	}
+
+	&__button {
+		position: relative;
+		top: 0;
+		margin: 10px 0;
+		padding: 5px 0;
+		width: 120px;
+		z-index: 0;
+
+		font-size: $fsz-content;
+		font-weight: bold;
+		font-style: italic;
+		letter-spacing: 2px;
+		transition-duration: 400ms;
+		transition-delay: 0s;
+
+		background: rgb(229, 229, 233);
+		border: 1px solid $head-color;
+		color: $head-color;
+		border-radius: 20px;
+		box-shadow: 0 3px 0 rgba(0, 0, 0, 0.66);
+		&:hover {
+			transition-duration: 200ms;
+			top: 2px;
+			box-shadow: 0 1px 0 rgba(0, 0, 0, 0.66);
+			background: rgba(224, 186, 21, 0.57);
+		}
+		&:active {
+			background: rgb(66, 191, 195);
+		}
+
+	}
+
+	&__footer {
+		display: none;
+	}
+
+}
+// ================================================================================
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	background: $head-color;
+
+	@media (min-width: 1024px) {
+		height: 50px;
+	}
+	p {
+		text-align: center;
+		font-size: $fsz-title;
+		font-weight: bold;
+		letter-spacing: 2px;
+		color: rgb(255, 255, 255);
+		@extend %tshadow;
+
+		@media (min-width: 375px) {
+			font-size: $fsz-title-375;
+		}
+	}
+}
+
+.arcane, .rare, .common {
+	border-radius: 20px;
+	padding: 3px 10px;
+	transition: all 300ms ease 0s;
+	// box-shadow: 0 0 4px black;
+}
+
+.arcane {
+	background: rgb(255, 17, 17);
+	border: 2px solid rgb(245, 230, 27);
+	color: rgb(245, 230, 27);
+}
+
+.rare {
+	background: rgb(28, 17, 255);
+	border: 2px solid rgb(23, 207, 240);
+	color: rgb(23, 207, 240);
+}
+
+.common {
+	background: rgb(158, 158, 158);
+	border: 2px solid rgb(216, 223, 220);
+	color: rgb(216, 223, 220);
+}
+// ================================================================================
