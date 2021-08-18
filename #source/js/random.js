@@ -6,7 +6,13 @@ $(document).ready(function() {
   $('#uniqueness').empty().append(uniq+'%');
 });
 
+var audio1 = new Audio('audio/Soundpack/roblox.mp3');
+var audio2 = new Audio('audio/Soundpack/hurt.mp3');
+var audio3 = new Audio('audio/Soundpack/fart.mp3');
+
 $('#ranbut').click(function() {
+  audio2.play();
+
   var rarity_n = Math.floor((Math.random()*100)+1);
   var rarity_s = Math.floor((Math.random()*100)+1);
 
