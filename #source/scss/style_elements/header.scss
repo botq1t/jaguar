@@ -1,0 +1,58 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: url("../img/header/yager1.jpg") 0 0 / contain round;
+	border: 3px solid $head-color;
+	z-index: 20;
+	&__row {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 85px;
+	}
+	&__text {
+		p {
+			display: flex;
+			background: rgba(22, 2, 119, 0.85);
+			border-radius: 20px;
+			padding: 7px 20px;
+
+			text-align: center;
+			// font-size: $fsz-title;
+			font-weight: 700;
+			letter-spacing: 1px;
+			color: rgb(255, 255, 255);
+			@extend %tshadow;
+			@include adaptiv-font(28, 17);
+			@media (min-width: 1024px) {
+				font-size: 28px;
+			}
+
+			&::before {
+				content: "";
+				background: url("../img/header/smile1.svg") 0 0/100% no-repeat;
+				margin: 0 3px 0 0;
+			}
+			&::after {
+				content: "";
+				background: url("../img/header/smile2.svg") 0 0/100% no-repeat;
+				margin: 0 0 0 3px;
+			}
+			&::before, &::after {
+				display: inline-block;
+				height: 18px;
+				width: 18px;
+				@include adaptiv-h-w-smiles (26, 17);
+				@media (min-width: 1024px) {
+					width: 26px;
+					height: 26px;
+				}
+			}
+		}
+	}
+}

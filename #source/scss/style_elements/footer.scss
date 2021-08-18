@@ -1,0 +1,19 @@
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	background: $head-color;
+
+	@media (min-width: 1024px) {
+		height: 50px;
+	}
+	p {
+		text-align: center;
+		@include adaptiv-font(26, 20);
+		font-weight: bold;
+		letter-spacing: 2px;
+		color: rgb(255, 255, 255);
+		@extend %tshadow;
+	}
+}

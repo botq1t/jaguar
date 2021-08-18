@@ -6,7 +6,7 @@ $(document).ready(function() {
   $('#old_open').click(function() {
     $('.old, .old__card').toggleClass('active');
     $('body').toggleClass('lock');
-    // old_audio.play();
+    old_audio.play();
   });
 // Закрытие генераора
   $('#old_close').click(function() {
