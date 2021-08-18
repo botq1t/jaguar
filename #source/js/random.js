@@ -5,13 +5,17 @@ $(document).ready(function() {
   var uniq=Math.floor(1/(n*s)*100*1000)/1000;
   $('#uniqueness').empty().append(uniq+'%');
 });
+// Звуки
+var audio = new Audio('audio/Soundpack/roblox.mp3');
+var arcane = new Audio('audio/yager/chel.mp3');
+var kruto = new Audio('audio/yager/kruto.mp3');
+var nekruto = new Audio('audio/yager/nekruto.mp3');
+var udachi = new Audio('audio/yager/udachi.mp3');
+var tajika = new Audio('audio/yager/tajika.mp3');
 
-var audio1 = new Audio('audio/Soundpack/roblox.mp3');
-var audio2 = new Audio('audio/Soundpack/hurt.mp3');
-var audio3 = new Audio('audio/Soundpack/fart.mp3');
 
+// Рандомер
 $('#ranbut').click(function() {
-  audio2.play();
 
   var rarity_n = Math.floor((Math.random()*100)+1);
   var rarity_s = Math.floor((Math.random()*100)+1);
@@ -35,7 +39,7 @@ $('#ranbut').click(function() {
     $('#name').empty().append(names_a[rn]);
     console.log('Аркана: '+(rn+1), names_a[rn]);
     var n_r = 'Arcane';
-  } else {if (rarity_n < 21) {
+  } else {if (rarity_n < 26) {
             if ($('#name').hasClass('common')) {
               $('#name').toggleClass('common')
             }
@@ -80,7 +84,7 @@ $('#ranbut').click(function() {
     $('#surname').empty().append(surnames_a[rs]);
     console.log('Аркана: '+(rs+1), surnames_a[rs]);
     var s_r = 'Arcane';
-  } else {if (rarity_s < 21) {
+  } else {if (rarity_s < 26) {
             if ($('#surname').hasClass('common')) {
               $('#surname').toggleClass('common')
             }
@@ -112,15 +116,19 @@ $('#ranbut').click(function() {
     }
   // Показываем футер
   // $('#genfoo').css('display', 'block');
+  $('#genfoo').slideDown(300);
 
   if (n_r == 'Common') {
     if (s_r == 'Common') {
       $('#text_rarity').empty().append('Damn, just a commons dude...');
+      udachi.play();
     } else {
         if (s_r == 'Rare') {
           $('#text_rarity').empty().append('Rare surname, not bad, but the name is common;)');
+          nekruto.play();
         } else {
             $('#text_rarity').empty().append('Yeah, arcane surname! But the name still be common. Anyway, u fine, really :p');
+            kruto.play();
           }
 
       }
@@ -128,25 +136,32 @@ $('#ranbut').click(function() {
       if (n_r == 'Rare') {
         if (s_r == 'Common') {
           $('#text_rarity').empty().append('Huh, rare name, but surname is common, thats not ideal variant');
+          nekruto.play();
         } else {
             if (s_r == 'Rare') {
               $('#text_rarity').empty().append('Good combo! Rare name and surname. Cool, really cool');
+              tajika.play();
             } else {
                 $('#text_rarity').empty().append('Geez, rare name and arcane surname. Really awesome combination!');
+                kruto.play();
               }
             }
       } else {
         if (s_r == 'Common') {
           $('#text_rarity').empty().append('Ohh, man, it\'s arcane name! Really cool, so sad that the surname is common ;(');
+          kruto.play();
         } else {
             if (s_r == 'Rare') {
               $('#text_rarity').empty().append('Wow! Name is arcane and surname is rare! Close to ideal :)');
+              kruto.play();
             } else {
                 $('#text_rarity').empty().append('OMG, U FUCKING CRAZY!');
+                arcane.play();
               }
             }
         }
     }
 
-  $('#genfoo').slideDown(300);
+
+
 });
