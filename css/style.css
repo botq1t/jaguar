@@ -213,7 +213,7 @@ body.lock {
   .navigation__burger {
     display: block;
     position: relative;
-    top: 0;
+    top: -2px;
     left: 0;
     width: 30px;
     height: 20px;
@@ -464,7 +464,7 @@ body.lock {
 .gen__uniq {
   color: #cb0c0c;
 }
-@media (max-width: 425px) {
+@media (max-width: 550px) {
   .gen__random {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -550,19 +550,24 @@ body.lock {
 .arcane, .rare, .common {
   border-radius: 20px;
   padding: 3px 10px;
+  -webkit-transition: all 300ms ease 0s;
+  transition: all 300ms ease 0s;
 }
 
 .arcane {
   background: #ff1111;
-  color: white;
+  border: 2px solid #f5e61b;
+  color: #f5e61b;
 }
 
 .rare {
   background: #1c11ff;
-  color: white;
+  border: 2px solid #17cff0;
+  color: #17cff0;
 }
 
 .common {
   background: #9e9e9e;
-  color: white;
+  border: 2px solid #d8dfdc;
+  color: #d8dfdc;
 }

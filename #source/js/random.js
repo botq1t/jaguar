@@ -1,35 +1,19 @@
-// const rns = document.querySelector('.main__card-gen-random');
-// const uni = document.querySelector('.main__card_gen-chance');
-// const uni2 = document.querySelector('.main__card_gen-footer');
-
 document.querySelector('.header').style.backgroundImage = `url("img/header/yager${Math.floor((Math.random()*5)+1)}.jpg")`;
 console.log(document.querySelector('.header').style.backgroundImage);
 
-// var uniq=Math.floor(1/(n*s)*100*1000)/1000;
 $(document).ready(function() {
   var uniq=Math.floor(1/(n*s)*100*1000)/1000;
   $('#uniqueness').empty().append(uniq+'%');
-})
-// function randomer() {
-//   var rn = Math.floor(Math.random()*(n));
-//   var rs = Math.floor(Math.random()*(s));
-//
-//   rns.style.display = `inline`;
-//   rns.innerText = `${names[rn]} ${surnames[rs]}`
-//   rns.style.color = `#cb0c0c`;
-//
-//   uni.style.display = `inline`;
-//   uni.innerText = `${uniq}%`
-//
-//   uni2.style.display = `block`;
-//   uni2.innerText = `Not Bad ;)`
-// }
+});
 
 $('#ranbut').click(function() {
   var rarity_n = Math.floor((Math.random()*100)+1);
   var rarity_s = Math.floor((Math.random()*100)+1);
+
   console.log('Редкость имени: '+rarity_n);
   console.log('Редкость фамилии: '+rarity_s);
+
+  $('#name #surname').show(500);
   // Ранмодим имя
   if (rarity_n < 6) {
     if ($('#name').hasClass('rare')) {
@@ -121,7 +105,8 @@ $('#ranbut').click(function() {
             }
     }
   // Показываем футер
-  $('#genfoo').css('display', 'block');
+  // $('#genfoo').css('display', 'block');
+
   if (n_r == 'Common') {
     if (s_r == 'Common') {
       $('#text_rarity').empty().append('Damn, just a commons dude...');
@@ -156,4 +141,6 @@ $('#ranbut').click(function() {
             }
         }
     }
+
+  $('#genfoo').slideDown(300);
 });
