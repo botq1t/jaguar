@@ -1,12 +1,8 @@
 // @prepros-append "scripts/names.js"
 // @prepros-append "scripts/surnames.js"
 // @prepros-append "scripts/burger.js"
-// @prepros-append "scripts/rofl.js"
 // @prepros-append "scripts/random_bg.js"
-// @prepros-append "scripts/catalog.js"
+// @prepros-append "scripts/header_hi.js"
 
-var hi = new Audio('audio/yager/koroche_zdorova.mp3');
-
-$('.header').click(function() {
-  hi.play();
-});
+// @prepros-append "scripts/n_s/catalog.js"
+// =============================================================

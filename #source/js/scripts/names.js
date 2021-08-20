@@ -1,4 +1,40 @@
-let names = [
+
+let n_source = {
+	'names': ["Йогра",	"Ягра",	"Ягер",	"Ягор",	"Ягуар",	"Егор",	"Гоша",	"Грыша",	"Джордж",	"Джорджинио",	"Швагер",	"Крюгер",	"Стрингер",	"Игорь",	"Квакер",	"Йогурт",	"Егерь",	"Ядгар",	"Электроегор",	"Шлёпа",	"Шлёндра",	"Ягр",	"Шляпа",	"Шлёпок",	"Яга",	"Шлягер",	"Грыжа",	"Ярик",	"Егермейстер",	"Егорилла",	"Грошык",	"Горе",	"Швабра",	"Ягрон",	"Ятаган",	"Янычар",	"Ярило",	"Янцзы",	"Ярополк",	"Флюгер",	"Фляга",	"Ягрик",	"Фликер",	"Юнгер",	"Егурт",	"Юнга",	"Ягурец",	"Яруллин",	"Шиндр",	"Мындр",	"Ягрус",	"Егорище",	"Егорёк",	"Рыгор",	"Грека",	"Ярулинн",	"Гренка",	"Гангрена",	"Гроб",	"Тигр",	"Гогер",	"Юнкер",	"Янор",	"Жокер",	"Жорик",	"Жора",	"Жароха",	"Жмых",	"Жерех",	"Егошка",	"Геша",	"Егорик",	"Егорка",	"Кагор",	"Кент",	"Мотор",	"Крекер",	"Грильяж",	"Яромир",	"Ёринобу",	"Ёжик",	"Жэужык",	"Жужик",	"Живчик",	"Жывёла",	"Жоржик",	"Хоккей",	"Какей",	"Жрец",	"Жокей",	"Егоза",	"Гашиш",	"Гоголь",	"Гегель",	"Гитлер",	"Еггер",	"Григор",	"Грэг",	"Кракен",	"Гемор",	"Гомер",	"Голем",	"Горгулья",	"Гомункул",	"Ярослав",	"Копырь",	"Упырь",	"Крипер"],
+
+	'rarity': ["Common",	"Rare",	"Arcane",	"Arcane",	"Arcane",	"Arcane",	"Arcane",	"Arcane",	"Rare",	"Arcane",	"Arcane",	"Arcane",	"Rare",	"Rare",	"Rare",	"Arcane",	"Rare",	"Arcane",	"Arcane",	"Arcane",	"Arcane",	"Rare",	"Arcane",	"Rare",	"Rare",	"Arcane",	"Arcane",	"Rare",	"Rare",	"Rare",	"Rare",	"Rare",	"Arcane",	"Rare",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Rare",	"Rare",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Rare",	"Rare",	"Arcane",	"Rare",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Rare",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Rare",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common",	"Common"],
+};
+
+var names = [];
+var names_c = [];
+var names_a = [];
+var names_r = [];
+
+for (var i = 0; i < n_source['names'].length; i++) {
+	names[names.length] = n_source['names'][i];
+	if (n_source['rarity'][i] == 'Common') {
+		names_c[names_c.length] = n_source['names'][i];
+	} else if (n_source['rarity'][i] == 'Rare') {
+		names_r[names_r.length] = n_source['names'][i];
+	} else {
+		names_a[names_a.length] = n_source['names'][i];
+	}
+};
+// Common - 75%
+// Arcane - 5%
+// Rare - 20%
+// ==============================
+var n=names.length;
+var rn=Math.floor(Math.random()*(n));
+console.log("Name: "+n, rn, names[n-1]);
+// Sorting
+let namessort = [];
+namessort = names.slice();
+namessort.sort();
+// let j = 5;
+
+
+/* let names = [
 		"Йогра",
 		"Ягра",
 		"Ягер",
@@ -222,15 +258,4 @@ let names_r = [
 	"Ярик",
 	"Ятаган",
 ];
-// Common - 75%
-// Arcane - 5%
-// Rare - 20%
-// ==============================
-var n=names.length;
-var rn=Math.floor(Math.random()*(n));
-console.log("Name: "+n, rn, names[n-1]);
-// Sorting
-let namessort = [];
-namessort = names.slice();
-namessort.sort();
-let j = 5;
+*/

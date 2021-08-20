@@ -1,14 +1,14 @@
 // ================================================================================
 // ========================= Стили элементов ======================================
 // ================================================================================
-@import "nullstyle.scss";
-@import "tech.scss";
-
-@import "style_elements/old.scss";
+@import "style_elements/nullstyle.scss";
+@import "style_elements/tech.scss";
 @import "style_elements/header.scss";
 @import "style_elements/nav.scss";
 @import "style_elements/footer.scss";
 @import "style_elements/main.scss";
+
+@import "style_elements/index/old.scss";
 // ================================================================================
 // ============================== Стили ===========================================
 // ================================================================================
