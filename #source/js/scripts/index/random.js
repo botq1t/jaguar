@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var uniq=Math.floor(1/(n*s)*100*1000)/1000;
+  var uniq=Math.floor(1/(n*s)*100*10000)/10000;
   $('#uniqueness').empty().append(uniq+'%');
 });
 // Звуки
