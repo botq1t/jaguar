@@ -12,7 +12,7 @@
 // ============================== Стили ===========================================
 // ================================================================================
 body {
-	
+
 	&.lock {
 		overflow: hidden;
 	}
@@ -149,7 +149,8 @@ body {
 
 .first_letter {
 	text-align: center;
-	font-weight: 700;
+	font-family: 'Pacifico', cursive;
+	// font-weight: 700;
 	color: $head-color;
 	padding: 8px 0;
 	margin: 10px 0;
