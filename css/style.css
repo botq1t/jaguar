@@ -74,6 +74,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+body {
+  font-family: Merriweather;
+}
+
 .card__footer, .card__title, .footer p, .navigation__link a, .header__text p {
   text-shadow: 0 0 5px black;
 }
@@ -648,9 +652,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-body {
-  font-family: Merriweather;
-}
 body.lock {
   overflow: hidden;
 }
