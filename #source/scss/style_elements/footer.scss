@@ -4,6 +4,7 @@
 	justify-content: center;
 	height: 40px;
 	background: $head-color;
+	box-shadow: 0 -1px 5px black;
 
 	@media (min-width: 1024px) {
 		height: 50px;

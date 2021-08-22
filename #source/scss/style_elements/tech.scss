@@ -1,0 +1,55 @@
+// ================================================================================
+// ================================ Шрифты ========================================
+// ================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+		font-family: Merriweather;
+}
+// ================================================================================
+// ========================== Какие-то готовые записи =============================
+// ================================================================================
+%vid {
+	background: rgba(255, 0, 0, 0.15);
+	outline: 1px solid blue;
+}
+%tshadow {
+	text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+// ================================================================================
+// ============================= Миксины ==========================================
+// ================================================================================
+$maxWidth: 1024;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin adaptiv-line-height($pcSize2, $mobSize2) {
+	$addSize2: $pcSize2 - $mobSize2;
+	$maxWidth: $maxWidth - 320;
+	line-height: calc(#{$mobSize2 + px} + #{$addSize2} * ((100vw - 320px) / #{$maxWidth}));
+}
+@mixin adaptiv-h-w-smiles($pcSize1, $mobSize1) {
+	$addSize1: $pcSize1 - $mobSize1;
+	$maxWidth: $maxWidth - 320;
+	width: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+	height: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
+}
+// ================================================================================
+// ============================= Переменные =======================================
+// ================================================================================
+$head-color: rgb(22, 2, 119);
+$head-color-transparent: rgb(22, 2, 119, 0.85);
+$card-board-color: rgb(101, 100, 100);
+
+// $fsz-title: 20px;
+// $fsz-title-375: 21px;
+// $fsz-title-425: 25px;
+// $fsz-title-768: 26px;
+
+// $fsz-content: 17px;
+// $fsz-content-375: 24px;
+// $fsz-content-425: 24px;
+// $fsz-content-768: 26px;

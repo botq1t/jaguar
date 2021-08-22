@@ -13,6 +13,7 @@
 		width: 100%;
 		height: 100%;
 		z-index: 1;
+		box-shadow: 0 1px 5px black;
 	}
 	&__raw {
 		position: relative;
@@ -108,6 +109,22 @@
 				top: 2px;
 				margin: 0 0 0 5px;
 				background: url("../img/navigation/random.svg") 0 0 / auto 100% no-repeat;
+				@include adaptiv-h-w-smiles(25, 21);
+			}
+			&:nth-child(2)::after {
+				content: "";
+				position: absolute;
+				top: 2px;
+				margin: 0 0 0 5px;
+				background: url("../img/navigation/list.svg") 0 0 / auto 100% no-repeat;
+				@include adaptiv-h-w-smiles(25, 21);
+			}
+			&:nth-child(3)::after {
+				content: "";
+				position: absolute;
+				top: 2px;
+				margin: 0 0 0 5px;
+				background: url("../img/navigation/other.svg") 0 0 / auto 100% no-repeat;
 				@include adaptiv-h-w-smiles(25, 21);
 			}
 		}

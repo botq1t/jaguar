@@ -5,6 +5,5 @@
 // @prepros-append "scripts/header_hi.js"
 // @prepros-append "scripts/music.js"
 
-// @prepros-append "scripts/index/random.js"
-// @prepros-append "scripts/index/old.js"
-// ==========================================================
+// @prepros-append "scripts/n_s/catalog.js"
+// =============================================================

@@ -1,0 +1,92 @@
+.music {
+  display: none;
+  opacity: 0.2;
+  &.active {
+    display: inline-flex;
+  }
+
+  transition: opacity 300ms ease 0s;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    opacity: 1;
+  }
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 1%;
+  bottom: 70px;
+  @include adaptiv-h-w-smiles(73, 50);
+	&__play {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background: $head-color;
+    border-radius: 45%;
+    padding: 10px;
+    // width: 70px;
+    width: 95%;
+    transition: transform 50ms ease 0s;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+    &:active {
+      transform: scale(1.1);
+    }
+	}
+
+  &__outline {
+    background: rgb(3, 227, 188);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 45%;
+    position: absolute;
+    display: grid;
+    grid-template: 1ft 1ft / 1ft 1ft;
+    grid-template-areas: 'out1 out2' 'out3 out4';
+    left: 0;
+    top: 0;
+    transition: opacity 300ms ease 0s;
+    animation: musicRotate 1500ms linear infinite;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    &_1 {
+      grid-area: out1;
+      background: rgb(0, 255, 0);
+    }
+    &_2 {
+      grid-area: out2;
+      background: rgb(255, 0, 0);
+    }
+    &_3 {
+      grid-area: out3;
+      background: rgb(255, 0, 0);
+    }
+    &_4 {
+      grid-area: out4;
+      background: rgb(0, 255, 0);
+    }
+  }
+}
+
+
+@keyframes musicRotate {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: rotate(-180deg) scale(1.05);
+  }
+
+  100% {
+    transition: rotate(-360deg) scale(1);
+  }
+}

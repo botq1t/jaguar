@@ -1,0 +1,167 @@
+// ================================================================================
+// ========================= Стили элементов ======================================
+// ================================================================================
+@import "style_elements/nullstyle.scss";
+@import "style_elements/tech.scss";
+@import "style_elements/header.scss";
+@import "style_elements/nav.scss";
+@import "style_elements/footer.scss";
+@import "style_elements/main.scss";
+@import "style_elements/music.scss";
+// ================================================================================
+// ============================== Стили ===========================================
+// ================================================================================
+body {
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.container {
+	max-width: 930px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	// overflow: hidden;
+}
+// ================================================================================
+// =============================== Основная часть =================================
+// ================================================================================
+.catalog {
+	border-bottom-left-radius: 19px;
+	border-bottom-right-radius: 19px;
+	transition: all 500ms ease 0s;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		p {
+			padding-left: 9px;
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+
+			&:before, &:after {
+				content: "";
+				background: white;
+				position: absolute;
+				top: 50%;
+				width: 13px;
+				height: 3px;
+				transition: all 300ms ease 0s;
+			}
+			&:before {
+				left: -7px;
+				transform: rotate(-40deg);
+				border-top-right-radius: 45%;
+				border-bottom-right-radius: 45%;
+			}
+			&:after {
+				left: -15px;
+				transform: rotate(40deg);
+				border-top-left-radius: 45%;
+				border-bottom-left-radius: 45%;
+			}
+
+			&.active {
+				&:before, &:after {
+					// background: rgb(203, 67, 24);
+					transition: all 300ms ease 0s;
+				}
+				&:before {
+					transform: rotate(40deg);
+				}
+				&:after {
+					transform: rotate(-40deg);
+				}
+			}
+		};
+	}
+
+	&__content {
+		display: none;
+		// position: relative;
+		max-height: 200px;
+		overflow: auto;
+
+		@media (min-height: 760px) {
+			max-height: 350px;
+		}
+		@media (min-height: 800px) {
+			max-height: 450px;
+		}
+	}
+
+	&__list {
+		padding: 5px 0;
+		@include adaptiv-font(21, 18);
+		font-style: italic;
+		@include adaptiv-line-height(24, 21);
+
+		&_sorted {
+			display: none;
+		}
+
+		&_unsorted {
+
+		}
+
+	}
+
+	&__button {
+		// important
+		// display: none;
+		// important
+		// position: absolute;
+		// right: 20px;
+		// top: 10px;
+		@include adaptiv-font(22, 20);
+		color: white;
+		padding: 4px 10px;
+		border-radius: 15px;
+		border: 1px solid rgba(130, 131, 128, 0.5);
+		background: rgba(255, 255, 255, 0.1);
+		transition: all 300ms ease 0s, transform 50ms ease 0s;
+		&:hover {
+			background: rgba(84, 84, 84, 0.5);
+		}
+		&:active {
+			background: rgba(191, 191, 191, 0.8);
+			transform: scale(0.95);
+		}
+	}
+
+	&.active {
+		border-radius: 10px;
+	}
+
+}
+
+.first_letter {
+	text-align: center;
+	font-family: 'Pacifico', cursive;
+	// font-weight: 700;
+	color: $head-color;
+	padding: 8px 0;
+	margin: 10px 0;
+	border-bottom: 2px dashed $head-color;
+	border-top: 2px dashed $head-color;
+	&:first-child {
+		border-top: none;
+		margin-top: 0;
+	}
+}
+.divider {
+	margin: 12px 0;
+	border: 1px dashed $head-color;
+}

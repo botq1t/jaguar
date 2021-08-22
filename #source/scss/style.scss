@@ -1,66 +1,21 @@
 // ================================================================================
-// ================================ Шрифты ========================================
-// ================================================================================
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
-// ================================================================================
-// ========================== Какие-то готовые записи =============================
-// ================================================================================
-%vid {
-	background: rgba(255, 0, 0, 0.15);
-	outline: 1px solid blue;
-}
-%tshadow {
-	text-shadow: 0 0 5px rgb(0, 0, 0);
-}
-// ================================================================================
-// ============================= Миксины ==========================================
-// ================================================================================
-$maxWidth: 1024;
-@mixin adaptiv-font($pcSize, $mobSize) {
-	$addSize: $pcSize - $mobSize;
-	$maxWidth: $maxWidth - 320;
-	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
-}
-@mixin adaptiv-line-height($pcSize2, $mobSize2) {
-	$addSize2: $pcSize2 - $mobSize2;
-	$maxWidth: $maxWidth - 320;
-	line-height: calc(#{$mobSize2 + px} + #{$addSize2} * ((100vw - 320px) / #{$maxWidth}));
-}
-@mixin adaptiv-h-w-smiles($pcSize1, $mobSize1) {
-	$addSize1: $pcSize1 - $mobSize1;
-	$maxWidth: $maxWidth - 320;
-	width: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
-	height: calc(#{$mobSize1 + px} + #{$addSize1} * ((100vw - 320px) / #{$maxWidth}));
-}
-// ================================================================================
-// ============================= Переменные =======================================
-// ================================================================================
-$head-color: rgb(22, 2, 119);
-$card-board-color: rgb(101, 100, 100);
-
-// $fsz-title: 20px;
-// $fsz-title-375: 21px;
-// $fsz-title-425: 25px;
-// $fsz-title-768: 26px;
-
-// $fsz-content: 17px;
-// $fsz-content-375: 24px;
-// $fsz-content-425: 24px;
-// $fsz-content-768: 26px;
-// ================================================================================
 // ========================= Стили элементов ======================================
 // ================================================================================
-@import "nullstyle.scss";
-
-@import "style_elements/old.scss";
+@import "style_elements/nullstyle.scss";
+@import "style_elements/tech.scss";
 @import "style_elements/header.scss";
 @import "style_elements/nav.scss";
 @import "style_elements/footer.scss";
+@import "style_elements/main.scss";
+@import "style_elements/music.scss";
+
+
+@import "style_elements/index/old.scss";
 // ================================================================================
 // ============================== Стили ===========================================
 // ================================================================================
 body {
-	font-family: Merriweather;
+
 	&.lock {
 		overflow: hidden;
 	}
@@ -81,64 +36,13 @@ body {
 // ================================================================================
 // =============================== Основная часть =================================
 // ================================================================================
-.main {
-	padding: 131px 0 0 0;
-	flex: 1 1 auto;
-	background: linear-gradient(to bottom, rgba(242,239,247,1) 0%,rgba(228,222,232,1) 50%,rgba(247,247,247,1) 100%);
-	&__row {
-		display: flex;
-		flex-direction: column;
-	}
-}
-
-.card {
-	display: flex;
-	flex-direction: column;
-	flex: 1 0 auto;
-	background: rgba(220, 218, 224, 1);
-	border-radius: 10px;
-	overflow: hidden;
-	margin: 10px 0;
-	box-shadow: 2px 2px 3px black;
-	&__title {
-		padding: 6px 10px;
-		background: rgb(161, 158, 184);
-		p {
-			text-align: center;
-			@include adaptiv-font(28, 21);
-			font-weight: bold;
-			color: rgb(255, 255, 255);
-			@extend %tshadow;
-		}
-	}
-	&__content {
-		display: flex;
-		flex-direction: column;
-		flex: 1 0 auto;
-		padding: 10px 20px;
-		p {
-			@include adaptiv-font(24, 20);
-			@include adaptiv-line-height(30, 22);
-			margin: 5px 0;
-			font-style: italic;
-			color: $head-color;
-			text-shadow: 0 0 2px black;
-			transition: color 300ms ease-out 0s, font-weight 600ms ease-out 0s;
-		}
-	}
-	&__footer {
-		background: rgb(161, 158, 184);
-		padding: 6px 10px;
-
-		text-align: center;
-		font-weight: bold;
-		@include adaptiv-font(23, 18);
-		color: rgb(255, 255, 255);
-		@extend %tshadow;
-	}
-}
-
 .gen {
+
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	&__content {
 		align-items: center;
@@ -182,7 +86,7 @@ body {
 			transition-duration: 200ms;
 			top: 2px;
 			box-shadow: 0 1px 0 rgba(0, 0, 0, 0.66);
-			background: rgba(224, 186, 21, 0.57);
+			background: rgba(210, 221, 17, 0.94);
 		}
 		&:active {
 			background: rgb(66, 191, 195);
@@ -202,6 +106,7 @@ body {
 .arcane, .rare, .common {
 	border-radius: 20px;
 	padding: 3px 10px;
+	box-shadow: 0 0 3px black;
 	transition: all 300ms ease 0s;
 	// box-shadow: 0 0 4px black;
 }
