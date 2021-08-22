@@ -873,7 +873,9 @@ body.lock {
   display: none;
 }
 
-.arcane, .rare, .common {
+.arcane,
+.rare,
+.common {
   border-radius: 20px;
   padding: 3px 10px;
   -webkit-box-shadow: 0 0 3px black;
