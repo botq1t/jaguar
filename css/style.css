@@ -446,6 +446,135 @@ body {
   color: white;
 }
 
+.music {
+  display: none;
+  opacity: 0.2;
+  -webkit-transition: opacity 300ms ease 0s;
+  transition: opacity 300ms ease 0s;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  left: 1%;
+  bottom: 70px;
+  width: calc(50px + 23 * ((100vw - 320px) / 704));
+  height: calc(50px + 23 * ((100vw - 320px) / 704));
+}
+.music.active {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.music:hover {
+  opacity: 1;
+}
+.music:active {
+  opacity: 1;
+}
+.music__play {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background: #160277;
+  border-radius: 45%;
+  padding: 10px;
+  width: 95%;
+  -webkit-transition: -webkit-transform 50ms ease 0s;
+  transition: -webkit-transform 50ms ease 0s;
+  transition: transform 50ms ease 0s;
+  transition: transform 50ms ease 0s, -webkit-transform 50ms ease 0s;
+}
+.music__play img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.music__play:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.music__outline {
+  background: #03e3bc;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 45%;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1ft 1ft;
+      grid-template: 1ft 1ft/1ft 1ft;
+      grid-template-areas: "out1 out2" "out3 out4";
+  left: 0;
+  top: 0;
+  -webkit-transition: opacity 300ms ease 0s;
+  transition: opacity 300ms ease 0s;
+  -webkit-animation: musicRotate 1500ms linear infinite;
+          animation: musicRotate 1500ms linear infinite;
+}
+.music__outline.active {
+  visibility: visible;
+  opacity: 1;
+}
+.music__outline_1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: out1;
+  background: lime;
+}
+.music__outline_2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: out2;
+  background: red;
+}
+.music__outline_3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: out3;
+  background: red;
+}
+.music__outline_4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: out4;
+  background: lime;
+}
+
+@-webkit-keyframes musicRotate {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(-180deg) scale(1.05);
+            transform: rotate(-180deg) scale(1.05);
+  }
+  100% {
+    -webkit-transition: rotate(-360deg) scale(1);
+    transition: rotate(-360deg) scale(1);
+  }
+}
+
+@keyframes musicRotate {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(-180deg) scale(1.05);
+            transform: rotate(-180deg) scale(1.05);
+  }
+  100% {
+    -webkit-transition: rotate(-360deg) scale(1);
+    transition: rotate(-360deg) scale(1);
+  }
+}
 .old {
   opacity: 0;
   visibility: hidden;

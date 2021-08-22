@@ -7,13 +7,15 @@
 @import "style_elements/nav.scss";
 @import "style_elements/footer.scss";
 @import "style_elements/main.scss";
+@import "style_elements/music.scss";
+
 
 @import "style_elements/index/old.scss";
 // ================================================================================
 // ============================== Стили ===========================================
 // ================================================================================
 body {
-	
+
 	&.lock {
 		overflow: hidden;
 	}
